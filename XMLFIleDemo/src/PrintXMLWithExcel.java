@@ -88,7 +88,7 @@ public class PrintXMLWithExcel
 						for (int nodeNameListVariable = 0; nodeNameListVariable<nodeNameList.getLength(); nodeNameListVariable++)
 						{
 							Node nodeName = nodeNameList.item(nodeNameListVariable);
-							Element nodeNameElement = (Element) nodeName;
+							//Element nodeNameElement = (Element) nodeName;
 							//System.out.println(nodeNameElement.getElementsByTagName("value").item(0));
 							//System.out.println(nodeName.getTextContent());
 //							if (nodeName.getTextContent().equalsIgnoreCase("name"))
