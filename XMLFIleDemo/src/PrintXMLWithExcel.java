@@ -57,7 +57,8 @@ public class PrintXMLWithExcel
 		    Row row = sheet.getRow(0);
 		    Iterator<Cell> iterator = row.cellIterator();
 		//getting the value from the document with tag named as parameters.
-		    NodeList tagParameterList = doc.getElementsByTagName("parameters");
+		    NodeList tagParameterList = doc.getElementsByTagName("parameter");
+		    //System.out.println(tagParameterList.getLength());
 		    	
 		    while (iterator.hasNext())
 		    {
@@ -72,6 +73,7 @@ public class PrintXMLWithExcel
 					Node parameter1 = tagParameterList.item(j);
 			//getting all the child nodes
 					NodeList nl = parameter1.getChildNodes();
+					//System.out.println(nl.getLength());
 					
 			//iterating through every child node
 					for (int i=0; i<nl.getLength(); i++)
@@ -81,26 +83,35 @@ public class PrintXMLWithExcel
 						
 						//System.out.println(cell.getStringCellValue());
 						//System.out.println(node.getTextContent());
+						if ("name".equals(node.getNodeName()))
+						{
+							if (cell.getStringCellValue().equals(node.getTextContent()))
+							{
+								System.out.println ("Inside of "+node.getTextContent());
+								
+								//node.setTextContent(textContent);
+							}
+						}
 						
 			//created one list for all the nodes with name tag.
-						NodeList nodeNameList = doc.getElementsByTagName("name");
-			//iterating through all the name nodes where name matches.
-						for (int nodeNameListVariable = 0; nodeNameListVariable<nodeNameList.getLength(); nodeNameListVariable++)
-						{
-							Node nodeName = nodeNameList.item(nodeNameListVariable);
-							//Element nodeNameElement = (Element) nodeName;
-							//System.out.println(nodeNameElement.getElementsByTagName("value").item(0));
-							//System.out.println(nodeName.getTextContent());
-//							if (nodeName.getTextContent().equalsIgnoreCase("name"))
-//							{
-//								//System.out.println(nodeName.getTextContent());
-//								System.out.println("Inside the name tag");
-//							}
+//						NodeList nodeNameList = doc.getElementsByTagName("name");
+//			//iterating through all the name nodes where name matches.
+//						for (int nodeNameListVariable = 0; nodeNameListVariable<nodeNameList.getLength(); nodeNameListVariable++)
+//						{
+//							Node nodeName = nodeNameList.item(nodeNameListVariable);
+//							//Element nodeNameElement = (Element) nodeName;
+//							//System.out.println(nodeNameElement.getElementsByTagName("value").item(0));
+//							//System.out.println(nodeName.getTextContent());
+////							if (nodeName.getTextContent().equalsIgnoreCase("name"))
+////							{
+////								//System.out.println(nodeName.getTextContent());
+////								System.out.println("Inside the name tag");
+////							}
 							
-								if (cell.getStringCellValue().equals(nodeName.getTextContent()))
-									//node.setTextContent("Akshit");
-									System.out.println("Inside the replacement string");
-						}
+//								if (cell.getStringCellValue().equals(nodeName.getTextContent()))
+//									//node.setTextContent("Akshit");
+//									System.out.println("Inside the replacement string");
+//						}
 						
 							
 					}
@@ -118,7 +129,7 @@ public class PrintXMLWithExcel
 //			 trans.transform(ds2, sr);
 		
 		    String xml = sw.toString();
-		  //  System.out.println(xml);
+		    System.out.println(xml);
 			
 			
 					
