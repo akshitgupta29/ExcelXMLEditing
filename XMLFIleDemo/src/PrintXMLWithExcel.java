@@ -88,6 +88,12 @@ public class PrintXMLWithExcel
 							if (cell.getStringCellValue().equals(node.getTextContent()))
 							{
 								System.out.println ("Inside of "+node.getTextContent());
+								Row row1 = sheet.getRow(1);
+								Iterator <Cell> iterator1 = row1.cellIterator();
+								while (iterator1.hasNext())
+								{
+									Cell cell1 = iterator1.next();
+								}
 								
 								//node.setTextContent(textContent);
 							}
