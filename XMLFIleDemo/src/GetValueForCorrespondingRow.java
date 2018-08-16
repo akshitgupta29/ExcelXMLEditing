@@ -78,6 +78,7 @@ public class GetValueForCorrespondingRow
 					Node parameter1 = tagParameterList.item(j);
 			//getting all the child nodes
 					NodeList nl = parameter1.getChildNodes();
+					NodeList nl2 = parameter1.getChildNodes();
 					//System.out.println(nl.getLength());
 					
 			//iterating through every child node
@@ -85,7 +86,7 @@ public class GetValueForCorrespondingRow
 					{
 			//creating individaul node for every child node ie parameter.
 						Node node = nl.item(i);
-						Node node1 = nl.item(i);
+						Node node1 = nl2.item(i);
 						
 						//System.out.println(cell.getStringCellValue());
 						//System.out.println(node1.getNodeName());
