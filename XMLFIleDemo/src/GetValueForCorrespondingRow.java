@@ -56,6 +56,7 @@ public class GetValueForCorrespondingRow
 		//getting the first row of the excel
 		    Row row = sheet.getRow(0);
 		    Row row1 = sheet.getRow(1);
+		    System.out.println (row.getLastCellNum());
 		   for (int it1 = 0; it1< row.getLastCellNum(); it1++)
 		   {
 			   
@@ -89,6 +90,8 @@ public class GetValueForCorrespondingRow
 						Node node1 = nl2.item(i);
 						
 						//System.out.println(cell.getStringCellValue());
+						System.out.println(node1.getNodeName());
+						System.out.println(node1.getNodeName());
 						//System.out.println(node1.getNodeName());
 						if ("name".equals(node.getNodeName()))
 						{
@@ -109,6 +112,7 @@ public class GetValueForCorrespondingRow
 										System.out.println("inside of varialve " + cell2.getStringCellValue());
 										System.out.println(node1.getNodeName());
 										System.out.println(node.getNodeName());
+										
 										if ("value".equalsIgnoreCase(node1.getNodeName()))
 										{
 											System.out.println("In the nvalude node");
