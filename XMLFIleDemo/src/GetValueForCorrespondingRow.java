@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.StringWriter;
 import java.util.Iterator;
+import java.util.Objects;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -80,7 +81,7 @@ public class GetValueForCorrespondingRow
 			//getting all the child nodes
 					NodeList nl = parameter1.getChildNodes();
 					NodeList nl2 = parameter1.getChildNodes();
-					//System.out.println(nl.getLength());
+					System.out.println(nl.getLength());
 					
 			//iterating through every child node
 					for (int i=0; i<nl.getLength(); i++)
@@ -93,7 +94,8 @@ public class GetValueForCorrespondingRow
 						System.out.println(node1.getNodeName());
 						System.out.println(node1.getNodeName());
 						//System.out.println(node1.getNodeName());
-						if ("name".equals(node.getNodeName()))
+						//if ("name".equals(node.getNodeName()))
+						if (node.getNodeType() == Node.ELEMENT_NODE && Objects.equals("name", node.getNodeName()))
 						{
 							if (cell.getStringCellValue().equals(node.getTextContent()))
 							{
@@ -113,7 +115,8 @@ public class GetValueForCorrespondingRow
 										System.out.println(node1.getNodeName());
 										System.out.println(node.getNodeName());
 										
-										if ("value".equalsIgnoreCase(node1.getNodeName()))
+										//if ("value".equalsIgnoreCase(node1.getNodeName()))
+										if (node.getNodeType() == Node.ELEMENT_NODE && Objects.equals("value", node1.getNodeName()))
 										{
 											System.out.println("In the nvalude node");
 											node1.setTextContent(cell2.getStringCellValue());
