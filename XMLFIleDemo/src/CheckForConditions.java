@@ -106,11 +106,12 @@ public class CheckForConditions {
 										System.out.println(node1.getNodeName());
 										// System.out.println(node.getNodeName());
 										System.out.println("the value is printed"
-												+ doc.getElementsByTagName("value").item(i).getTextContent());
-										doc.getElementsByTagName("value").item(i)
+												+ doc.getElementsByTagName("value").item(it2).getTextContent());
+										doc.getElementsByTagName("value").item(it2)
 												.setTextContent(cell2.getStringCellValue());
 										System.out.println("the value is printed"
-												+ doc.getElementsByTagName("value").item(i).getTextContent());
+												+ doc.getElementsByTagName("value").item(it2).getTextContent());
+										break;
 
 										// if ("value".equalsIgnoreCase(node1.getNodeName()))
 										// if (Objects.equals("value", node1.getNodeName()))
@@ -168,7 +169,9 @@ public class CheckForConditions {
 			String xml = sw.toString();
 			System.out.println(xml);
 
-		} catch (Exception e) {
+		} 
+		
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
