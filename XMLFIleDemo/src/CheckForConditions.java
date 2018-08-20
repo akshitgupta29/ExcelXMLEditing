@@ -22,7 +22,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class GetValueForCorrespondingRow 
+public class CheckForConditions 
 {
 	public static void main(String[] args) 
 	{
@@ -59,6 +59,8 @@ public class GetValueForCorrespondingRow
 		    Row row1 = sheet.getRow(1);
 		    int it2=0;
 		   // System.out.println (row.getLastCellNum());
+		    NodeList tagParameterList = doc.getElementsByTagName("parameter");
+			NodeList tagParameterList1 = doc.getElementsByTagName("value");
 		   for (int it1 = 0; it1< row.getLastCellNum(); it1++)
 		   {
 			   for (it2= 0; it2<row1.getLastCellNum(); it2++)
@@ -68,8 +70,7 @@ public class GetValueForCorrespondingRow
 		   
 		    //Iterator<Cell> iterator = row.cellIterator();
 		//getting the value from the document with tag named as parameters.
-					NodeList tagParameterList = doc.getElementsByTagName("parameter");
-					NodeList tagParameterList1 = doc.getElementsByTagName("parameter");
+					
 		    //System.out.println(tagParameterList.getLength());
 		    	
 		    
@@ -119,10 +120,15 @@ public class GetValueForCorrespondingRow
 									if (it1 == it2)
 									{
 										System.out.println("inside of variable " + cell2.getStringCellValue());
-										//System.out.println(node1.getNodeName());
-										System.out.println(node.getNodeName());
+										System.out.println(node1.getNodeName());
+										//System.out.println(node.getNodeName());
 										
 										//if ("value".equalsIgnoreCase(node1.getNodeName()))
+										if (Objects.equals("value", node1.getNodeName()))
+										{
+											System.out.println("In the nvalue node "+node1.getNodeValue() + "cell2" + cell2.getStringCellValue());
+											//node1.setTextContent(cell2.getStringCellValue());
+										}
 										
 										
 									}
@@ -133,11 +139,7 @@ public class GetValueForCorrespondingRow
 								}
 								
 							}
-							if (node1.getNodeType() == Node.ELEMENT_NODE && Objects.equals("value", node1.getNodeName()))
-							{
-								System.out.println("In the nvalue node "+node.getNodeValue());
-								//node1.setTextContent(cell2.getStringCellValue());
-							}
+							
 						
 //						if ("value".equalsIgnoreCase(node.getNodeName()))
 //						{
