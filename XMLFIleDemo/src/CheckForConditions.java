@@ -28,13 +28,13 @@ public class CheckForConditions {
 		int it2 = 0;
 		try {
 			// opening the XML File
-			String filepathXML = "C:\\Users\\guptaksh\\Desktop\\Coding Practice\\XML-JAVA\\c7b57990-78b5-4b00-a107-eeddca279613_params.xml";
+			String filepathXML = "C:\\Users\\guptaksh\\Documents\\Open\\234f9223-594b-30bc-8b9f-79301dc251aa_params.xml";
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 			Document doc = docBuilder.parse(filepathXML);
 
 			// opening the Excel File
-			String filepathExcel = "C:\\Users\\guptaksh\\Desktop\\Coding Practice\\XML-JAVA\\Book1.xlsx";
+			String filepathExcel = "C:\\Users\\guptaksh\\Desktop\\Coding Practice\\XML-JAVA\\Book2.xlsx";
 			FileInputStream fls = new FileInputStream(new File(filepathExcel));
 			XSSFWorkbook workbook = new XSSFWorkbook(fls);
 			XSSFSheet sheet = workbook.getSheetAt(0);
@@ -48,9 +48,9 @@ public class CheckForConditions {
 			// for printing in console
 			StringWriter sw = new StringWriter();
 			// for file editing
-			// StreamResult sr = new StreamResult(new File(filepath));
+			StreamResult sr = new StreamResult(new File(filepathXML));
 			// for printing the result on console.
-			StreamResult sr = new StreamResult(sw);
+			//StreamResult sr = new StreamResult(sw);
 
 			// getting the first row of the excel
 			Row row = sheet.getRow(0);
@@ -103,7 +103,7 @@ public class CheckForConditions {
 									Cell cell2 = row1.getCell(it2);
 									if (it1 == it2) {
 										System.out.println("inside of variable " + cell2.getStringCellValue());
-										System.out.println(node1.getNodeName());
+										//System.out.println(node1.getNodeName());
 										// System.out.println(node.getNodeName());
 										System.out.println("the value is printed"
 												+ doc.getElementsByTagName("value").item(it2).getTextContent());
